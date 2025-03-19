@@ -32,15 +32,15 @@ public class LoginTest {
         loginButtom.isDisplayed();
         loginButtom.click();
 
-        WebElement usernameField = driver.findElement(By.xpath("//div[@class='ebel LnJF']"));
+        WebElement usernameField = driver.findElement(By.xpath("//input[@name='login']"));
         usernameField.isDisplayed();
         usernameField.sendKeys("test123");
 
-        WebElement passwordField = driver.findElement(By.xpath("//div[@class='WVfu LnJF']"));
+        WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
         passwordField.isDisplayed();
         passwordField.sendKeys("password123");
 
-        WebElement entryButtom = driver.findElement(By.xpath("//div[@class='z_TF']"));
+        WebElement entryButtom = driver.findElement(By.xpath("//button[@data-auth-type='login']"));
         entryButtom.isDisplayed();
         entryButtom.click();
 
