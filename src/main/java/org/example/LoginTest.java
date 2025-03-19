@@ -9,15 +9,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 
 public class LoginTest {
     private WebDriver driver;
-//    private final OptionsWithArguments options;
 
-//    public LoginTest(OptionsWithArguments options) {
-//        this.options = options;
-//    }
+
 
     @BeforeMethod
     public void setUp(){
@@ -25,6 +23,7 @@ public class LoginTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://epicentrk.ua/");
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test
@@ -33,14 +32,17 @@ public class LoginTest {
         loginButtom.isDisplayed();
         loginButtom.click();
 
-//        WebElement usernameField = driver.findElement(By.xpath("/html/body/div[8]/div[2]/div/div[2]/div/div[1]/div/form/div[2]/div/input"));
-//       usernameField.sendKeys("test123");
-//
-//        WebElement passwordField = driver.findElement(By.xpath("/html/body/div[8]/div[2]/div/div[2]/div/div[1]/div/form/div[3]/div/input"));
-//        passwordField.sendKeys("password123");
-//
-//        WebElement entryButtom = driver.findElement(By.xpath("/html/body/div[8]/div[2]/div/div[2]/div/div[1]/div/form/div[5]/button"));
-//        entryButtom.click();
+        WebElement usernameField = driver.findElement(By.xpath("//div[@class='ebel LnJF']"));
+        usernameField.isDisplayed();
+        usernameField.sendKeys("test123");
+
+        WebElement passwordField = driver.findElement(By.xpath("//div[@class='WVfu LnJF']"));
+        passwordField.isDisplayed();
+        passwordField.sendKeys("password123");
+
+        WebElement entryButtom = driver.findElement(By.xpath("//div[@class='z_TF']"));
+        entryButtom.isDisplayed();
+        entryButtom.click();
 
     }
 
