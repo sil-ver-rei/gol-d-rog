@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     public WebDriver driver;
-    public LoginPage loginPage;
+    public LoginModalView loginModalView;
 
     @BeforeMethod
     public void setUp() {
@@ -17,7 +17,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://epicentrk.ua/");
-        loginPage = new LoginPage(driver);
+        loginModalView = new LoginModalView(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 

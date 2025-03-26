@@ -5,10 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage {
+public class LoginModalView extends BasePage {
 
     @FindBy(xpath = "//div[@class='header__login-opener']")
     public WebElement loginButton;
+
+    @FindBy(xpath = "//header[contains(@class, 'yRuB')]")
+    public WebElement modalViewHeader;
 
     @FindBy(xpath = "//input[@name='login']")
     public WebElement usernameField;
@@ -23,7 +26,7 @@ public class LoginPage extends BasePage {
     public WebElement errorMessage;
 
 
-    public LoginPage(WebDriver driver) {
+    public LoginModalView(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -42,5 +45,9 @@ public class LoginPage extends BasePage {
 
     public boolean isErrorMessageDisplayed() {
         return errorMessage.isDisplayed();
+    }
+
+    public boolean assertThatModalViewIsDisplayed() {
+        return modalViewHeader.isDisplayed();
     }
 }
